@@ -1,6 +1,3 @@
-Here’s a complete **README.md** tailored for your portfolio repo. It’s polished, recruiter‑friendly, and includes badges, structure, and deployment info.
-
-```markdown
 # Piyush Kumar Anand – Portfolio Website
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
