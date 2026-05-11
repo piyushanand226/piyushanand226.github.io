@@ -15,15 +15,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # ✅ updated to v4
 
-      # Upload artifact for Pages
+      # Upload artifact for Pages (latest version)
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3   # ✅ updated to v3
         with:
-          path: ./   # Root folder with index.html
+          path: ./   # Root folder containing index.html
 
-      # Deploy to GitHub Pages
+      # Deploy to GitHub Pages (latest version)
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4   # ✅ updated to v4
