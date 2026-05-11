@@ -7,25 +7,20 @@ on:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # allow pushing to gh-pages
-      pages: write      # allow publishing to Pages
-      id-token: write   # required for OIDC authentication
+      contents: read
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4   # ✅ updated to v4
+        uses: actions/checkout@v4
 
-      # Upload artifact for Pages (latest version)
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3   # ✅ updated to v3
+      - name: Deploy to GitHub Pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./   # Root folder containing index.html
-
-      # Deploy to GitHub Pages (latest version)
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4   # ✅ updated to v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          keep_files: true
