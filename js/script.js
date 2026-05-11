@@ -101,13 +101,23 @@ document.querySelectorAll('section').forEach(section => {
   observer.observe(section);
 });
 
-// Add loading animation to buttons
-document.querySelectorAll('.btn').forEach(button => {
-  button.addEventListener('click', function() {
-    this.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      this.style.transform = 'scale(1)';
-    }, 150);
-  });
+// Add staggered animation for expertise items
+const expertiseItems = document.querySelectorAll('.expertise-item');
+expertiseItems.forEach((item, index) => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateY(20px)';
+  item.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+
+  // Trigger animation when section is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(item);
 });
 
