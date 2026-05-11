@@ -11,7 +11,8 @@
   <header>
     <nav>
       <h1 class="logo">PKA</h1>
-      <ul>
+      <button class="hamburger" id="hamburger">☰</button>
+      <ul id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -23,7 +24,7 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <h2>Piyush Kumar Anand</h2>
+    <h1>Piyush Kumar Anand</h1>
     <p>Senior Software Engineer | AI System Designer</p>
     <a href="resume.pdf" class="btn">Download Resume</a>
     <a href="#projects" class="btn">View Projects</a>
@@ -43,7 +44,7 @@
   <!-- Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
-    <ul>
+    <ul class="skills-grid">
       <li>Backend Development (Java, Spring Boot, WebFlux)</li>
       <li>Cloud & DevOps (AWS, GCP, Azure, Kubernetes, Docker)</li>
       <li>Messaging Systems (Kafka, RabbitMQ, Redis)</li>
@@ -54,21 +55,23 @@
   <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>Reactive Microservices on AWS</h3>
-      <p>Scalable microservices architecture with 30% latency reduction.</p>
-    </div>
-    <div class="project">
-      <h3>ESB Integration</h3>
-      <p>Enterprise Service Bus integration for telecom systems.</p>
-    </div>
-    <div class="project">
-      <h3>Pollution Monitoring System</h3>
-      <p>IoT-based system for real-time pollution tracking.</p>
-    </div>
-    <div class="project">
-      <h3>GCP Data Pipelines</h3>
-      <p>Data pipelines for analytics and compliance reporting.</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Reactive Microservices on AWS</h3>
+        <p>Scalable microservices architecture with 30% latency reduction.</p>
+      </div>
+      <div class="project-card">
+        <h3>ESB Integration</h3>
+        <p>Enterprise Service Bus integration for telecom systems.</p>
+      </div>
+      <div class="project-card">
+        <h3>Pollution Monitoring System</h3>
+        <p>IoT-based system for real-time pollution tracking.</p>
+      </div>
+      <div class="project-card">
+        <h3>GCP Data Pipelines</h3>
+        <p>Data pipelines for analytics and compliance reporting.</p>
+      </div>
     </div>
   </section>
 
@@ -90,5 +93,8 @@
   <footer>
     <p>&copy; 2026 Piyush Kumar Anand. All rights reserved.</p>
   </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
