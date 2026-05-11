@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piyush Kumar Anand | Senior Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -36,14 +39,35 @@
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Senior Software Engineer with 5.6+ years of experience designing and scaling cloud-native microservices across telecom, automotive, and compliance domains. Specialized in:</p>
-    <ul>
-      <li>REST APIs with Feign Client + API Gateway (rate limiting, JWT, circuit breaker, fallback)</li>
-      <li>Reactive WebClient + API Gateway serving 50K+ concurrent users</li>
-      <li>30% Latency Reduction | 20% Throughput Increase | 40% Faster Deployments</li>
-      <li>Spring Boot, WebFlux, Reactor, RxJava, and Kubernetes deployments on AWS (EKS, EC2, Lambda)</li>
-      <li>Mentoring teams on reactive programming and enabling scalable architecture adoption</li>
-    </ul>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Senior Software Engineer with 5.6+ years of experience designing and scaling cloud-native microservices across telecom, automotive, and compliance domains. Specialized in:</p>
+        <ul>
+          <li>REST APIs with Feign Client + API Gateway (rate limiting, JWT, circuit breaker, fallback)</li>
+          <li>Reactive WebClient + API Gateway serving 50K+ concurrent users</li>
+          <li>Spring Boot, WebFlux, Reactor, RxJava, and Kubernetes deployments on AWS (EKS, EC2, Lambda)</li>
+          <li>Mentoring teams on reactive programming and enabling scalable architecture adoption</li>
+        </ul>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-number">5.6+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">Latency Reduction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20%</div>
+          <div class="stat-label">Throughput Increase</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">40%</div>
+          <div class="stat-label">Faster Deployments</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Skills Section -->
@@ -64,22 +88,50 @@
       <div class="project-card">
         <h3>C Datacom (2024–2025)</h3>
         <p>Developed Spring Boot + Kafka reactive microservices with exactly-once semantics, deployed on AWS EC2 + Lambda with Kubernetes. Integrated WebClient + API Gateway, achieving 30% latency reduction and 20% throughput increase.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Spring Boot</span>
+          <span class="tech-tag">Kafka</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">Kubernetes</span>
+        </div>
       </div>
       <div class="project-card">
         <h3>ESB Integration (2022–2024)</h3>
         <p>Designed REST APIs with Feign Client + API Gateway (rate limiting, JWT, circuit breaker, fallback) and Kafka + RabbitMQ reactive messaging to serve 50K+ users. Migrated OSB-based microservices into unified Spring Boot SOAP-based microservices using applicationcontext.xml.</p>
+        <div class="project-tech">
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">Feign Client</span>
+          <span class="tech-tag">Kafka</span>
+          <span class="tech-tag">RabbitMQ</span>
+        </div>
       </div>
       <div class="project-card">
         <h3>BDTVV – Pollution Estimation (2019–2022)</h3>
         <p>Migrated legacy Struts services to Spring Boot microservices, modernizing architecture. Designed Kafka pipelines with Redis caching, increasing telemetry throughput by 20%.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Spring Boot</span>
+          <span class="tech-tag">Kafka</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">Struts</span>
+        </div>
       </div>
       <div class="project-card">
         <h3>CCV Batch & Web (2019–2022)</h3>
         <p>Reduced report generation time by 40% via Apache Beam pipelines on GCP Dataflow, improving performance and scalability.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Apache Beam</span>
+          <span class="tech-tag">GCP Dataflow</span>
+          <span class="tech-tag">Big Data</span>
+        </div>
       </div>
       <div class="project-card">
         <h3>BDCO2 Tax Calculation (2019–2022)</h3>
         <p>Automated CO2 emission tax calculations with Spring Boot + Oracle DB, improving reporting accuracy and compliance traceability.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Spring Boot</span>
+          <span class="tech-tag">Oracle DB</span>
+          <span class="tech-tag">Compliance</span>
+        </div>
       </div>
     </div>
   </section>
@@ -87,11 +139,15 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Feel free to reach out! Click below to send me an email directly.</p>
-    <a href="mailto:kumaranandpiyush5@gmail.com?subject=Contact from Portfolio&body=Hi Piyush,%0A%0AI found your portfolio and would like to connect.%0A%0ABest regards," class="btn">Send Email</a>
-    <p>Email: <a href="mailto:piyushanandbang@gmail.com">piyushanandbang@gmail.com</a></p>
-    <p>Phone: <a href="tel:+918210586660">+91 82105 86660</a></p>
-    <p><a href="https://linkedin.com/in/piyush-kumar-anand-096959355/">LinkedIn</a> | <a href="https://github.com/piyushanand226">GitHub</a></p>
+    <div class="contact-content">
+      <p>Feel free to reach out! Click below to send me an email directly.</p>
+      <a href="mailto:kumaranandpiyush5@gmail.com?subject=Contact from Portfolio&body=Hi Piyush,%0A%0AI found your portfolio and would like to connect.%0A%0ABest regards," class="btn">Send Email</a>
+      <div class="contact-links">
+        <p>Email: <a href="mailto:kumaranandpiyush5@gmail.com">kumaranandpiyush5@gmail.com</a></p>
+        <p>Phone: <a href="tel:+918210586660">+91 82105 86660</a></p>
+        <p><a href="https://linkedin.com/in/piyush-kumar-anand-096959355/">LinkedIn</a> | <a href="https://github.com/piyushanand226">GitHub</a></p>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
