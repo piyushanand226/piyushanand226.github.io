@@ -8,15 +8,22 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # allow pushing to gh-pages
+      pages: write      # allow publishing to Pages
+      id-token: write   # required for OIDC authentication
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # Upload artifact for Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./   # Root folder with index.html
-          external_repository: piyushanand226/piyushanand226.github.io
-          publish_branch: gh-pages
+          path: ./   # Root folder with index.html
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
