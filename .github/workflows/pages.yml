@@ -9,21 +9,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pages: write
+      contents: write   # allow pushing to gh-pages
+      pages: write      # allow publishing to Pages
+      id-token: write   # required for OIDC authentication
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+        uses: actions/checkout@v4   # ✅ updated to v4
 
-      - name: Deploy to GitHub Pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      # Upload artifact for Pages (latest version)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3   # ✅ updated to v3
         with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
-          user_name: github-actions[bot]
-          user_email: github-actions[bot]@users.noreply.github.com
-          keep_files: true
+          path: ./   # Root folder containing index.html
+
+      # Deploy to GitHub Pages (latest version)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4   # ✅ updated to v4
