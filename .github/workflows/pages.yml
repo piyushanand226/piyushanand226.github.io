@@ -9,11 +9,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
+      pages: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Pages branch
         uses: peaceiris/actions-gh-pages@v4
