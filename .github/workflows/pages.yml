@@ -3,31 +3,20 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger deployment only when pushing to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Setup Node (optional, useful if you add build steps later)
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      # Build step (skip if plain HTML/CSS/JS)
-      # Uncomment if you add bundlers like React/Vue/Next
-      # - name: Build site
-      #   run: npm install && npm run build
-
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./   # Root folder (where index.html is located)
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./   # Root folder with index.html
+          external_repository: piyushanand226/piyushanand226.github.io
+          publish_branch: gh-pages
