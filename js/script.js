@@ -101,12 +101,12 @@ document.querySelectorAll('section').forEach(section => {
   observer.observe(section);
 });
 
-// Add staggered animation for expertise items
-const expertiseItems = document.querySelectorAll('.expertise-item');
-expertiseItems.forEach((item, index) => {
+// Add staggered animation for experience items
+const experienceItems = document.querySelectorAll('.experience-item');
+experienceItems.forEach((item, index) => {
   item.style.opacity = '0';
   item.style.transform = 'translateY(20px)';
-  item.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+  item.style.transition = `opacity 0.6s ease-out ${index * 0.15}s, transform 0.6s ease-out ${index * 0.15}s`;
 
   // Trigger animation when section is visible
   const observer = new IntersectionObserver((entries) => {

@@ -712,6 +712,30 @@ footer p {
     flex-direction: column;
     gap: 16px;
   }
+
+  .experience-item {
+    padding: 24px;
+  }
+
+  .experience-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .company-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .experience-details li {
+    font-size: 0.95rem;
+    padding-left: 20px;
+  }
+
+  .experience-details li::before {
+    font-size: 1rem;
+  }
+}
 }
 
 @media (max-width: 480px) {
@@ -759,4 +783,107 @@ section {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Experience Section */
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.experience-item {
+  background: white;
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--bg-gradient);
+}
+
+.experience-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.experience-header {
+  margin-bottom: 24px;
+}
+
+.experience-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.company-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.company {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.location {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding: 4px 12px;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 20px;
+}
+
+.duration {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 20px;
+}
+
+.experience-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-details li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.experience-details li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.experience-details li:last-child {
+  margin-bottom: 0;
 }
