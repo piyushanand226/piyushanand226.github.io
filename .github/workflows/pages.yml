@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     permissions:
       contents: write   # allow pushing to gh-pages
       pages: write      # allow publishing to Pages
