@@ -808,9 +808,67 @@ section h2::after {
 }
 
 /* Contact section */
+.section-alt {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 32px;
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.06);
+  padding: 64px 24px;
+}
+
+.capabilities-grid,
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.capability-card,
+.contact-card {
+  background: white;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capability-card:hover,
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.capability-card h3,
+.contact-card h4 {
+  margin-bottom: 14px;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.capability-card p,
+.contact-card a,
+.contact-content p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.contact-card a {
+  display: block;
+  margin-top: 10px;
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-card a:hover {
+  color: var(--primary-color);
+}
+
 .contact-content {
   text-align: center;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -946,6 +1004,17 @@ footer p {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .section-alt {
+    padding: 48px 20px;
+  }
+
+  .capabilities-grid,
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   header nav ul {
     gap: 24px;
@@ -1083,17 +1152,43 @@ html {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.experience-container::before {
+  content: '';
+  position: absolute;
+  top: 44px;
+  left: 16px;
+  width: 4px;
+  height: calc(100% - 64px);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.8), rgba(37, 99, 235, 0.2));
+  border-radius: 999px;
 }
 
 .experience-item {
   background: white;
-  padding: 32px;
+  padding: 32px 32px 32px 40px;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+}
+
+.experience-item::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: -2px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
 }
 
 .experience-item::before {
