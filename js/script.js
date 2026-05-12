@@ -121,3 +121,12 @@ experienceItems.forEach((item, index) => {
   observer.observe(item);
 });
 
+// Project filter button interaction (UI-only)
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+  });
+});
+

@@ -25,15 +25,53 @@
       </ul>
     </nav>
   </header>
+  <main>
 
   <!-- Hero Section -->
  <section id="home" class="hero">
-  <img src="asset/profile.png" alt="Piyush Kumar Anand" class="profile-photo">
-  <h1>Piyush Kumar Anand</h1>
-  <p>Senior Software Engineer | AI System Designer</p>
-  <div class="hero-actions">
-    <a href="asset/resume.pdf" class="btn" download="Piyush_Kumar_Anand_Resume.pdf">Download Resume</a>
-    <a href="#projects" class="btn">View Projects</a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Senior Software Engineer</span>
+      <h1>Piyush Kumar Anand</h1>
+      <p>Building responsive, cloud-native systems with reactive Java microservices and modern architecture for high-performing product teams.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">AI System Design</span>
+        <span class="hero-tag">Spring Boot</span>
+        <span class="hero-tag">Kubernetes</span>
+        <span class="hero-tag">Event Streaming</span>
+      </div>
+      <div class="hero-actions">
+        <a href="asset/resume.pdf" class="btn btn-primary" download="Piyush_Kumar_Anand_Resume.pdf">Download Resume</a>
+        <a href="#projects" class="btn btn-secondary">View Projects</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <img src="asset/profile.png" alt="Piyush Kumar Anand" class="profile-photo">
+      <div class="hero-card">
+        <span class="hero-card-label">Featured Impact</span>
+        <h3>30% latency reduction across reactive pipelines</h3>
+        <p>Delivered modern Kafka-backed microservices and optimized AWS EKS deployments for robust, high-throughput systems.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-highlights">
+    <div class="highlight-card">
+      <span class="highlight-icon">✨</span>
+      <h3>Component-style layout</h3>
+      <p>Clean sections, spacing, and card-based structure for a modern app-like portfolio.</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">🚀</span>
+      <h3>Performance-first feel</h3>
+      <p>Polished interactions, smooth hover motion, and a subtle gradient-focused theme.</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">☁️</span>
+      <h3>Cloud-enabled mindset</h3>
+      <p>Highlights reactive systems, microservices, and reliable cloud engineering at a glance.</p>
+    </div>
   </div>
 </section>
 
@@ -175,6 +213,15 @@
   <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
+    <div class="project-header">
+      <p>Selected highlights from modern reactive systems, cloud automation, and high-scale data engineering work.</p>
+      <div class="project-filters">
+        <button type="button" class="filter-btn active">All</button>
+        <button type="button" class="filter-btn">Backend</button>
+        <button type="button" class="filter-btn">Cloud</button>
+        <button type="button" class="filter-btn">Data</button>
+      </div>
+    </div>
     <div class="project-grid">
       <div class="project-card">
         <h3>C Datacom (2024–2025)</h3>
@@ -240,6 +287,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer>
