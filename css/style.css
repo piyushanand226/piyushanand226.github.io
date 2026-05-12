@@ -250,23 +250,102 @@ header nav ul li a:hover {
   font-weight: 600;
 }
 
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 28px;
+.hero-component-preview {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 36px;
 }
 
-.badge {
-  display: inline-flex;
+.component-preview {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(99, 102, 241, 0.16);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.component-window {
+  display: flex;
   align-items: center;
-  padding: 10px 14px;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.component-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.component-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.4);
+}
+
+.component-dot.red { background: #f87171; }
+.component-dot.yellow { background: #fbbf24; }
+.component-dot.green { background: #34d399; }
+
+.component-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.component-tab {
+  padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  color: white;
-  font-size: 0.88rem;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.component-tab.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary-dark);
+}
+
+.component-lines {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.component-line {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.14);
+}
+
+.component-line.long { width: 100%; }
+.component-line.medium { width: 80%; }
+.component-line.short { width: 55%; }
+
+.component-feature-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.component-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.component-feature span {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary-dark);
 }
 
 .hero-panel {
