@@ -1,12 +1,48 @@
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
+const navBackdrop = document.getElementById('nav-backdrop');
+const scrollProgressBar = document.getElementById('scroll-progress-bar');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const toastEl = document.getElementById('toast');
+let toastTimer;
+
+function showToast(message) {
+  if (!toastEl) return;
+  window.clearTimeout(toastTimer);
+  toastEl.textContent = message;
+  toastEl.hidden = false;
+  requestAnimationFrame(() => {
+    toastEl.classList.add('is-visible');
+  });
+  toastTimer = window.setTimeout(() => {
+    toastEl.classList.remove('is-visible');
+    window.setTimeout(() => {
+      toastEl.hidden = true;
+      toastEl.textContent = '';
+    }, 320);
+  }, 2600);
+}
+
+function isMobileNav() {
+  return window.matchMedia('(max-width: 768px)').matches;
+}
+
 function setMenuOpen(open) {
-  navLinks.classList.toggle('show', open);
   if (hamburger) {
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    hamburger.classList.toggle('is-open', open);
   }
+  if (navLinks) {
+    navLinks.classList.toggle('show', open);
+  }
+  if (navBackdrop) {
+    const useBackdrop = Boolean(open) && isMobileNav();
+    navBackdrop.classList.toggle('is-visible', useBackdrop);
+    navBackdrop.setAttribute('aria-hidden', useBackdrop ? 'false' : 'true');
+  }
+  document.body.classList.toggle('menu-open', Boolean(open) && isMobileNav());
 }
 
 if (hamburger && navLinks) {
@@ -15,8 +51,30 @@ if (hamburger && navLinks) {
   });
 }
 
+navBackdrop?.addEventListener('click', () => setMenuOpen(false));
+
 document.querySelectorAll('#nav-links a').forEach((link) => {
   link.addEventListener('click', () => setMenuOpen(false));
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navLinks?.classList.contains('show')) {
+    setMenuOpen(false);
+    hamburger?.focus();
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (!isMobileNav()) {
+    setMenuOpen(false);
+  }
+});
+
+document.querySelector('.skip-link')?.addEventListener('click', () => {
+  window.requestAnimationFrame(() => {
+    const main = document.getElementById('main-content');
+    if (main) main.focus({ preventScroll: true });
+  });
 });
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -38,6 +96,16 @@ let lastScrollTop = 0;
 const header = document.querySelector('header');
 
 if (header) {
+  let progressRaf = 0;
+  const updateScrollProgress = () => {
+    progressRaf = 0;
+    if (!scrollProgressBar) return;
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - doc.clientHeight;
+    const p = scrollable > 0 ? window.scrollY / scrollable : 0;
+    scrollProgressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, p))})`;
+  };
+
   window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -56,22 +124,32 @@ if (header) {
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+    if (!progressRaf) {
+      progressRaf = window.requestAnimationFrame(updateScrollProgress);
+    }
   });
+  updateScrollProgress();
 }
 
 const sections = document.querySelectorAll('section');
 const navItems = document.querySelectorAll('header nav ul li a');
 
-window.addEventListener('scroll', () => {
-  let current = '';
+function updateActiveNav() {
+  const headerOffset = 110;
+  const scrollPos = window.scrollY + headerOffset;
+  let current = 'home';
+  const list = Array.from(sections);
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute('id');
+  for (let i = list.length - 1; i >= 0; i -= 1) {
+    const section = list[i];
+    const id = section.getAttribute('id');
+    if (!id) continue;
+    if (scrollPos >= section.offsetTop) {
+      current = id;
+      break;
     }
-  });
+  }
 
   navItems.forEach((item) => {
     item.classList.remove('active');
@@ -80,7 +158,10 @@ window.addEventListener('scroll', () => {
       item.classList.add('active');
     }
   });
-});
+}
+
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
 
 const observerOptions = {
   threshold: 0.12,
@@ -118,20 +199,53 @@ revealOnScroll(document.querySelectorAll('.experience-item'), 0.08);
 
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
+const projectEmpty = document.getElementById('project-empty');
+const projectLive = document.getElementById('project-live');
+
+const filterLabels = {
+  all: 'All',
+  backend: 'Backend',
+  cloud: 'Cloud',
+  data: 'Data',
+};
+
+function applyProjectFilter(button) {
+  filterButtons.forEach((btn) => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
+  });
+  button.classList.add('active');
+  button.setAttribute('aria-pressed', 'true');
+
+  const filter = (button.dataset.filter || 'all').toLowerCase();
+  let visibleCount = 0;
+
+  projectCards.forEach((card) => {
+    const raw = card.getAttribute('data-categories') || '';
+    const categories = raw.toLowerCase().split(/\s+/).filter(Boolean);
+    const visible = filter === 'all' || categories.includes(filter);
+    card.toggleAttribute('hidden', !visible);
+    if (visible) visibleCount += 1;
+  });
+
+  if (projectEmpty) {
+    projectEmpty.hidden = visibleCount > 0;
+  }
+
+  const label = filterLabels[filter] || filter;
+  const msg =
+    filter === 'all'
+      ? `Showing all ${visibleCount} projects.`
+      : visibleCount === 0
+        ? 'No projects match this filter.'
+        : `${visibleCount} project${visibleCount === 1 ? '' : 's'} tagged ${label}.`;
+
+  if (projectLive) projectLive.textContent = msg;
+  if (visibleCount === 0) {
+    showToast('No projects match this filter.');
+  }
+}
 
 filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    filterButtons.forEach((btn) => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    const filter = (button.dataset.filter || 'all').toLowerCase();
-
-    projectCards.forEach((card) => {
-      const raw = card.getAttribute('data-categories') || '';
-      const categories = raw.toLowerCase().split(/\s+/).filter(Boolean);
-      const visible = filter === 'all' || categories.includes(filter);
-      card.classList.toggle('project-card--hidden', !visible);
-      card.toggleAttribute('hidden', !visible);
-    });
-  });
+  button.addEventListener('click', () => applyProjectFilter(button));
 });
