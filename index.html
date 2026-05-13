@@ -6,15 +6,15 @@
   <title>Piyush Kumar Anand | Senior Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Navigation -->
   <header>
     <nav>
-      <h1 class="logo">PKA</h1>
-      <button class="hamburger" id="hamburger">☰</button>
+      <a href="#home" class="logo" aria-label="Piyush Kumar Anand — home">PKA</a>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
       <ul id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -50,11 +50,8 @@
               <span class="component-dot red"></span>
               <span class="component-dot yellow"></span>
               <span class="component-dot green"></span>
-            <div>
-              <p>Building responsive, cloud-native systems with reactive Java microservices and modern architecture for high-performing product teams.</p>
             </div>
-            </div>
-           
+            <p class="component-window-copy">Building responsive, cloud-native systems with reactive Java microservices and modern architecture for high-performing product teams.</p>
           </div>
           <div class="component-lines">
             <div class="component-line long"></div>
@@ -245,11 +242,40 @@
   <!-- Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
+    <p class="section-lead">Core stacks I use to design, ship, and operate production systems.</p>
     <ul class="skills-grid">
-      <li>Backend Development (Java, Spring Boot, WebFlux)</li>
-      <li>Cloud & DevOps (AWS, GCP, Azure, Kubernetes, Docker)</li>
-      <li>Messaging Systems (Kafka, RabbitMQ, Redis)</li>
-      <li>Testing & QA (JUnit, Mockito, Cypress, Playwright)</li>
+      <li>
+        <span class="skill-card-label">Backend</span>
+        <h3 class="skill-card-title">Platforms & APIs</h3>
+        <p>Java, Spring Boot, WebFlux, REST, reactive pipelines.</p>
+        <div class="skill-chips">
+          <span>Java</span><span>Spring Boot</span><span>WebFlux</span><span>REST</span>
+        </div>
+      </li>
+      <li>
+        <span class="skill-card-label">Cloud</span>
+        <h3 class="skill-card-title">Infra & delivery</h3>
+        <p>Multi-cloud deploys, containers, and repeatable releases.</p>
+        <div class="skill-chips">
+          <span>AWS</span><span>GCP</span><span>Azure</span><span>Kubernetes</span><span>Docker</span>
+        </div>
+      </li>
+      <li>
+        <span class="skill-card-label">Data</span>
+        <h3 class="skill-card-title">Streaming & cache</h3>
+        <p>Event-driven design with resilient messaging patterns.</p>
+        <div class="skill-chips">
+          <span>Kafka</span><span>RabbitMQ</span><span>Redis</span>
+        </div>
+      </li>
+      <li>
+        <span class="skill-card-label">Quality</span>
+        <h3 class="skill-card-title">Testing</h3>
+        <p>Automated confidence from unit tests through E2E.</p>
+        <div class="skill-chips">
+          <span>JUnit</span><span>Mockito</span><span>Cypress</span><span>Playwright</span>
+        </div>
+      </li>
     </ul>
   </section>
 
@@ -258,15 +284,15 @@
     <h2>Projects</h2>
     <div class="project-header">
       <p>Selected highlights from modern reactive systems, cloud automation, and high-scale data engineering work.</p>
-      <div class="project-filters">
-        <button type="button" class="filter-btn active">All</button>
-        <button type="button" class="filter-btn">Backend</button>
-        <button type="button" class="filter-btn">Cloud</button>
-        <button type="button" class="filter-btn">Data</button>
+      <div class="project-filters" role="group" aria-label="Filter projects">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="backend">Backend</button>
+        <button type="button" class="filter-btn" data-filter="cloud">Cloud</button>
+        <button type="button" class="filter-btn" data-filter="data">Data</button>
       </div>
     </div>
     <div class="project-grid">
-      <div class="project-card">
+      <div class="project-card" data-categories="backend cloud data">
         <h3>C Datacom (2024–2025)</h3>
         <p>Developed Spring Boot + Kafka reactive microservices with exactly-once semantics, deployed on AWS EC2 + Lambda with Kubernetes. Integrated WebClient + API Gateway, achieving 30% latency reduction and 20% throughput increase.</p>
         <div class="project-tech">
@@ -276,7 +302,7 @@
           <span class="tech-tag">Kubernetes</span>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-categories="backend cloud data">
         <h3>ESB Integration (2022–2024)</h3>
         <p>Designed REST APIs with Feign Client + API Gateway (rate limiting, JWT, circuit breaker, fallback) and Kafka + RabbitMQ reactive messaging to serve 50K+ users. Migrated OSB-based microservices into unified Spring Boot SOAP-based microservices using applicationcontext.xml.</p>
         <div class="project-tech">
@@ -286,7 +312,7 @@
           <span class="tech-tag">RabbitMQ</span>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-categories="backend data">
         <h3>BDTVV – Pollution Estimation (2019–2022)</h3>
         <p>Migrated legacy Struts services to Spring Boot microservices, modernizing architecture. Designed Kafka pipelines with Redis caching, increasing telemetry throughput by 20%.</p>
         <div class="project-tech">
@@ -296,7 +322,7 @@
           <span class="tech-tag">Struts</span>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-categories="data cloud">
         <h3>CCV Batch & Web (2019–2022)</h3>
         <p>Reduced report generation time by 40% via Apache Beam pipelines on GCP Dataflow, improving performance and scalability.</p>
         <div class="project-tech">
@@ -305,7 +331,7 @@
           <span class="tech-tag">Big Data</span>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-categories="backend">
         <h3>BDCO2 Tax Calculation (2019–2022)</h3>
         <p>Automated CO2 emission tax calculations with Spring Boot + Oracle DB, improving reporting accuracy and compliance traceability.</p>
         <div class="project-tech">
