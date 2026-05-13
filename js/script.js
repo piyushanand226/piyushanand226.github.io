@@ -2,6 +2,7 @@ const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 const navBackdrop = document.getElementById('nav-backdrop');
 const scrollProgressBar = document.getElementById('scroll-progress-bar');
+const backToTop = document.getElementById('back-to-top');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const toastEl = document.getElementById('toast');
@@ -94,46 +95,18 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 let lastScrollTop = 0;
 const header = document.querySelector('header');
-
-if (header) {
-  let progressRaf = 0;
-  const updateScrollProgress = () => {
-    progressRaf = 0;
-    if (!scrollProgressBar) return;
-    const doc = document.documentElement;
-    const scrollable = doc.scrollHeight - doc.clientHeight;
-    const p = scrollable > 0 ? window.scrollY / scrollable : 0;
-    scrollProgressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, p))})`;
-  };
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (!prefersReducedMotion && scrollTop > lastScrollTop && scrollTop > 100) {
-      header.style.transform = 'translateY(-100%)';
-    } else {
-      header.style.transform = 'translateY(0)';
-    }
-
-    if (scrollTop > 50) {
-      header.style.background = 'rgba(255, 255, 255, 0.96)';
-      header.style.boxShadow = '0 8px 30px rgba(15, 23, 42, 0.08)';
-    } else {
-      header.style.background = '';
-      header.style.boxShadow = '';
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-
-    if (!progressRaf) {
-      progressRaf = window.requestAnimationFrame(updateScrollProgress);
-    }
-  });
-  updateScrollProgress();
-}
-
 const sections = document.querySelectorAll('section');
 const navItems = document.querySelectorAll('header nav ul li a');
+
+let progressRaf = 0;
+const updateScrollProgress = () => {
+  progressRaf = 0;
+  if (!scrollProgressBar) return;
+  const doc = document.documentElement;
+  const scrollable = doc.scrollHeight - doc.clientHeight;
+  const p = scrollable > 0 ? window.scrollY / scrollable : 0;
+  scrollProgressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, p))})`;
+};
 
 function updateActiveNav() {
   const headerOffset = 110;
@@ -153,15 +126,82 @@ function updateActiveNav() {
 
   navItems.forEach((item) => {
     item.classList.remove('active');
+    item.removeAttribute('aria-current');
     const href = item.getAttribute('href');
     if (href && href.startsWith('#') && href.slice(1) === current) {
       item.classList.add('active');
+      item.setAttribute('aria-current', 'page');
     }
   });
 }
 
-window.addEventListener('scroll', updateActiveNav);
-updateActiveNav();
+let scrollTicking = false;
+function onWindowScroll() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (header) {
+    if (!prefersReducedMotion && scrollTop > lastScrollTop && scrollTop > 100) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+
+    if (scrollTop > 50) {
+      header.style.background = 'rgba(255, 255, 255, 0.96)';
+      header.style.boxShadow = '0 8px 30px rgba(15, 23, 42, 0.08)';
+    } else {
+      header.style.background = '';
+      header.style.boxShadow = '';
+    }
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+  if (!progressRaf) {
+    progressRaf = window.requestAnimationFrame(updateScrollProgress);
+  }
+
+  updateActiveNav();
+
+  if (backToTop) {
+    const show = scrollTop > 420;
+    backToTop.classList.toggle('is-visible', show);
+    backToTop.hidden = !show;
+  }
+
+  scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    window.requestAnimationFrame(onWindowScroll);
+  }
+});
+onWindowScroll();
+updateScrollProgress();
+
+backToTop?.addEventListener('click', () => {
+  const home = document.getElementById('home');
+  if (home) {
+    home.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+  } else {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  }
+});
+
+document.querySelectorAll('.copy-btn').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const text = btn.getAttribute('data-copy');
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast('Email copied to clipboard.');
+    } catch {
+      showToast('Copy not supported in this browser.');
+    }
+  });
+});
 
 const observerOptions = {
   threshold: 0.12,
