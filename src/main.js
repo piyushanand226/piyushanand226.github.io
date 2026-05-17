@@ -55,7 +55,12 @@ function App() {
             React.createElement('img', { src: 'asset/profile.png', alt: 'Piyush Kumar Anand', className: 'profile-photo', width: '240', height: '240', decoding: 'async', fetchpriority: 'high' })
           )
         )
-      )
+      ),
+      React.createElement('section', { id: 'about' }, React.createElement('div', { className: 'container' }, React.createElement('h2', null, 'About'))),
+      React.createElement('section', { id: 'experience' }, React.createElement('div', { className: 'container' }, React.createElement('h2', null, 'Experience'))),
+      React.createElement('section', { id: 'skills' }, React.createElement('div', { className: 'container' }, React.createElement('h2', null, 'Skills'))),
+      React.createElement('section', { id: 'projects' }, React.createElement('div', { className: 'container' }, React.createElement('h2', null, 'Projects'))),
+      React.createElement('section', { id: 'contact' }, React.createElement('div', { className: 'container' }, React.createElement('h2', null, 'Contact')))
     )
   )
 }
