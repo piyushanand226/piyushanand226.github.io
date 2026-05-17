@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import '../css/style.css'
 
 const highlights = [
-  { label: 'Experience', value: '7+ Years', text: 'Building enterprise-grade distributed systems.' },
+  { label: 'Experience', value: '5.6 Years', text: 'Delivering production-grade backend systems with measurable impact.' },
   { label: 'Core Stack', value: 'Java + Spring', text: 'Reactive microservices, APIs, and event-driven architecture.' },
   { label: 'Cloud', value: 'AWS & K8s', text: 'Containerized delivery with observability and scalability.' },
 ]
@@ -138,9 +138,9 @@ function App() {
         <section id="home" className="hero">
           <div className="hero-grid">
             <div className="hero-copy">
-              <span className="eyebrow">Senior Software Engineer</span>
+              <span className="eyebrow">Software Engineer • Backend & Cloud</span>
               <h1>Piyush Kumar Anand</h1>
-              <p>Building responsive, cloud-native systems with reactive Java microservices and modern architecture.</p>
+              <p>I have 5.6 years of experience building scalable Java microservices, cloud platforms, and high-availability backend systems that improve product performance and business outcomes.</p>
               <div className="hero-actions">
                 <a href="asset/resume.pdf" className="btn btn-primary" download="Piyush_Kumar_Anand_Resume.pdf">Download Resume</a>
                 <a href="#projects" className="btn btn-secondary" onClick={(e) => onNavigate(e, 'projects')}>View Projects</a>
@@ -164,8 +164,8 @@ function App() {
         <section id="about" className="content-section">
           <h2>About</h2>
           <p>
-            I design and deliver scalable backend platforms with a focus on reliability, developer experience, and measurable business impact.
-            My approach combines pragmatic architecture, clean APIs, and strong operational excellence.
+            I am a software engineer with 5.6 years of hands-on experience in Java, Spring Boot, microservices, Kafka, and AWS.
+            I focus on building reliable backend platforms, improving system performance, and shipping business-focused solutions through clean architecture and strong ownership.
           </p>
         </section>
 
@@ -177,7 +177,7 @@ function App() {
         </section>
 
         <section id="projects" className="content-section">
-          <h2>Featured Projects</h2>
+          <h2>Recruiter-Friendly Highlights</h2>
           <div className="project-grid">
             {projects.map((project) => (
               <article key={project.title} className="project-mini-card">
@@ -191,7 +191,7 @@ function App() {
 
         <section id="contact" className="content-section">
           <h2>Contact</h2>
-          <p>Open to impactful engineering opportunities and technical collaborations.</p>
+          <p>Open to Software Engineer / Senior Software Engineer opportunities in backend, microservices, and cloud engineering.</p>
           <a className="btn btn-primary" href="mailto:piyush.kumar.anand@gmail.com?subject=Opportunity%20Discussion">Send Email</a>
         </section>
       </main>
