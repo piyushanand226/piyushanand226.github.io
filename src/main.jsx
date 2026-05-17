@@ -104,16 +104,6 @@ function App() {
     document.body.classList.toggle('menu-open', menuOpen && isMobile)
   }, [menuOpen, isMobile])
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setMenuOpen(false)
-      }
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
-
   const onNavigate = (event, id) => {
     event.preventDefault()
     const target = document.getElementById(id)
