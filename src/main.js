@@ -45,7 +45,7 @@ function App() {
           React.createElement('div', { className: 'hero-copy' },
             React.createElement('span', { className: 'eyebrow' }, 'Senior Software Engineer'),
             React.createElement('h1', null, 'Piyush Kumar Anand'),
-            React.createElement('p', null, 'Building responsive, cloud-native systems with reactive Java microservices and modern architecture.'),
+            React.createElement('p', null, 'Java • Spring Boot • Kafka • Reactive Systems • Cloud-Native Architecture'),
             React.createElement('div', { className: 'hero-actions' },
               React.createElement('a', { href: 'asset/resume.pdf', className: 'btn btn-primary', download: 'Piyush_Kumar_Anand_Resume.pdf' }, 'Download Resume'),
               React.createElement('a', { href: '#projects', className: 'btn btn-secondary' }, 'View Projects')
@@ -54,6 +54,87 @@ function App() {
           React.createElement('div', { className: 'hero-panel' },
             React.createElement('img', { src: 'asset/profile.png', alt: 'Piyush Kumar Anand', className: 'profile-photo', width: '240', height: '240', decoding: 'async', fetchpriority: 'high' })
           )
+        )
+      ),
+      React.createElement('section', { id: 'about' },
+        React.createElement('div', { className: 'container' },
+          React.createElement('h2', null, 'About'),
+          React.createElement('p', null, 'Senior Software Engineer with 5.6+ years of experience designing and scaling cloud-native systems across telecom, automotive, and compliance domains.'),
+          React.createElement('p', null, 'I specialize in Java/Spring ecosystems, reactive microservices, API Gateway patterns, and event-driven architecture with Kafka and RabbitMQ.'),
+          React.createElement('p', null, 'Delivered measurable outcomes including 30% latency reduction, 20% throughput increase, and 40% faster deployments through production-grade engineering and CI/CD automation.')
+        )
+      ),
+      React.createElement('section', { id: 'experience' },
+        React.createElement('div', { className: 'container' },
+          React.createElement('h2', null, 'Experience'),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Capgemini — Senior Software Engineer (Dec 2024 – Jun 2025)'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Architected Spring WebFlux microservices with WebClient + API Gateway for real-time Kafka provisioning at 50K+ scale.'),
+              React.createElement('li', null, 'Implemented adaptive backpressure in Kafka pipelines, reducing latency by 30%.'),
+              React.createElement('li', null, 'Automated CI/CD with Jenkins, Docker, Kubernetes on AWS EKS, cutting deployment cycles by 40%.')
+            )
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'British Telecom — Design Engineer (Nov 2022 – Dec 2024)'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Designed Spring MVC REST APIs with Feign + API Gateway using JWT, rate-limits, and circuit breakers.'),
+              React.createElement('li', null, 'Migrated services to Spring WebFlux and optimized Kafka partitioning/consumer groups for scale.'),
+              React.createElement('li', null, 'Introduced Playwright automation, reducing QA effort by 25%.')
+            )
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Renault Nissan Technology — Senior Software Engineer (Nov 2019 – Nov 2022)'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Migrated legacy Struts services to Spring Boot microservices for better modularity and maintainability.'),
+              React.createElement('li', null, 'Built RxJava compliance pipelines and Kafka ingestion with schema registry/replay for data integrity.'),
+              React.createElement('li', null, 'Raised automated coverage to 95% with JUnit + Mockito, reducing production defects.')
+            )
+          )
+        )
+      ),
+      React.createElement('section', { id: 'skills' },
+        React.createElement('div', { className: 'container' },
+          React.createElement('h2', null, 'Skills'),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Backend'),
+            React.createElement('p', null, 'Java, Spring Boot, Spring MVC, Spring WebFlux, Hibernate, REST APIs, Feign Client, JWT, Redis, SQL.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Frontend'),
+            React.createElement('p', null, 'JavaScript (ES6+), React, Angular, HTML5, CSS3.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'DevOps & Cloud'),
+            React.createElement('p', null, 'AWS (EKS, EC2, Lambda), Docker, Kubernetes, Jenkins, Git, CI/CD pipelines, observability and deployment automation.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Miscellaneous'),
+            React.createElement('p', null, 'Kafka, RabbitMQ, Project Reactor, RxJava, Camunda, Vault, ELK Stack, Agile/Scrum, mentoring and system design (HLD/LLD).')
+          )
+        )
+      ),
+      React.createElement('section', { id: 'projects' },
+        React.createElement('div', { className: 'container' },
+          React.createElement('h2', null, 'Projects'),
+          React.createElement('ul', null,
+            React.createElement('li', null, 'C Datacom (2024–2025): Built Spring Boot + Kafka reactive microservices with exactly-once semantics on AWS, delivering 30% lower latency and 20% higher throughput.'),
+            React.createElement('li', null, 'ESB Integration (2022–2024): Designed secure, resilient API Gateway patterns with Feign, JWT, rate limiting, circuit breaker, and reactive messaging for high-concurrency traffic.'),
+            React.createElement('li', null, 'BDTVV / CCV / BDCO2 (2019–2022): Modernized legacy services, improved telemetry throughput, and reduced reporting turnaround through pipeline and architecture upgrades.')
+          )
+        )
+      ),
+      React.createElement('section', { id: 'contact' },
+        React.createElement('div', { className: 'container' },
+          React.createElement('h2', null, 'Contact'),
+          React.createElement('p', null, 'Bellandur, Bangalore'),
+          React.createElement('p', null, 'Choose email:'),
+          React.createElement('p', null,
+            React.createElement('a', { href: 'mailto:kumaranandpiyush5@gmail.com' }, 'kumaranandpiyush5@gmail.com'),
+            ' ',
+            React.createElement('button', { type: 'button', className: 'copy-btn', 'data-copy': 'kumaranandpiyush5@gmail.com' }, 'Copy')
+          ),
+          React.createElement('p', null, 'Phone: +91-8210508660')
         )
       )
     )
