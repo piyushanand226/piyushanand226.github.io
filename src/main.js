@@ -148,7 +148,7 @@ function App() {
           ),
           React.createElement('p', null,
             'LinkedIn: ',
-            React.createElement('a', { href: 'https://www.linkedin.com/feed/', target: '_blank', rel: 'noopener noreferrer' }, 'linkedin.com/feed')
+            React.createElement('a', { href: 'https://www.linkedin.com/in/piyush-kumar-anand-096959355/', target: '_blank', rel: 'noopener noreferrer' }, 'linkedin.com/feed')
           )
         )
       )
