@@ -114,11 +114,6 @@ function App() {
           React.createElement('p', null, 'Bellandur, Bangalore'),
           React.createElement('p', null, 'Choose email:'),
           React.createElement('p', null,
-            React.createElement('a', { href: 'mailto:piyushanandbang@gmail.com' }, 'piyushanandbang@gmail.com'),
-            ' ',
-            React.createElement('button', { type: 'button', className: 'copy-btn', 'data-copy': 'piyushanandbang@gmail.com' }, 'Copy')
-          ),
-          React.createElement('p', null,
             React.createElement('a', { href: 'mailto:kumaranandpiyush5@gmail.com' }, 'kumaranandpiyush5@gmail.com'),
             ' ',
             React.createElement('button', { type: 'button', className: 'copy-btn', 'data-copy': 'kumaranandpiyush5@gmail.com' }, 'Copy')
