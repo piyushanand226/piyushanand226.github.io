@@ -192,7 +192,7 @@ function App() {
         <section id="contact" className="content-section">
           <h2>Contact</h2>
           <p>Open to impactful engineering opportunities and technical collaborations.</p>
-          <a className="btn btn-primary" href="mailto:piyush.kumar.anand@gmail.com">Let&apos;s Connect</a>
+          <a className="btn btn-primary" href="mailto:piyush.kumar.anand@gmail.com?subject=Opportunity%20Discussion">Send Email</a>
         </section>
       </main>
     </>
