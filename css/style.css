@@ -1533,25 +1533,25 @@ footer p {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: white;
+    background: #fff;
     position: absolute;
-    top: 100%;
-    left: -100%;
-    transition: left 0.3s ease-in-out;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 1200;
     box-shadow: var(--shadow-lg);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 14px;
+    padding: 10px 0;
   }
 
   #nav-links li {
-    margin: 16px 0;
+    margin: 0;
     text-align: center;
-    padding: 12px 24px;
+    padding: 8px 18px;
   }
 
   #nav-links.show {
     display: flex;
-    left: 0;
-    z-index: 20;
   }
 
   .hero {
@@ -1864,4 +1864,82 @@ header nav ul li a:focus-visible,
   #contact .contact-cards {
     grid-template-columns: 1fr;
   }
+}
+
+.highlights-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.highlight-label { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.highlight-value { font-size: 1.4rem; font-weight: 800; margin: 6px 0; }
+.highlight-text { color: var(--text-secondary); font-size: 0.95rem; }
+
+.content-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.content-section h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  margin-bottom: 14px;
+}
+
+.content-section p { color: var(--text-secondary); max-width: 760px; }
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid rgba(99, 102, 241, 0.24);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.project-mini-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+
+.project-mini-card h3 { margin: 10px 0 8px; font-size: 1.08rem; }
+.project-mini-card p { font-size: 0.95rem; }
+.project-tag {
+  display: inline-flex;
+  background: rgba(34, 211, 238, 0.14);
+  color: #0f766e;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
