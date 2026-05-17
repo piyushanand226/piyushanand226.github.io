@@ -36,6 +36,32 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ]
 
+const highlights = [
+  { label: 'Experience', value: '7+ Years', text: 'Building enterprise-grade distributed systems.' },
+  { label: 'Core Stack', value: 'Java + Spring', text: 'Reactive microservices, APIs, and event-driven architecture.' },
+  { label: 'Cloud', value: 'AWS & K8s', text: 'Containerized delivery with observability and scalability.' },
+]
+
+const skills = ['Java', 'Spring Boot', 'Kafka', 'Microservices', 'Kubernetes', 'AWS', 'PostgreSQL', 'Redis']
+
+const projects = [
+  {
+    title: 'Realtime Payments Platform',
+    desc: 'Built resilient payment workflows with idempotent processing and event streaming to improve reliability and throughput.',
+    tag: 'Backend',
+  },
+  {
+    title: 'Cloud Cost Insights',
+    desc: 'Created usage analytics dashboards and optimization workflows to reduce infrastructure spend while maintaining SLA targets.',
+    tag: 'Cloud',
+  },
+  {
+    title: 'Developer Enablement Toolkit',
+    desc: 'Standardized service templates, CI/CD checks, and observability defaults to speed up team delivery.',
+    tag: 'Platform',
+  },
+]
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
