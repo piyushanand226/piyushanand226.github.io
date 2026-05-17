@@ -117,10 +117,17 @@ function App() {
       React.createElement('section', { id: 'projects' },
         React.createElement('div', { className: 'container' },
           React.createElement('h2', null, 'Projects'),
-          React.createElement('ul', null,
-            React.createElement('li', null, 'C Datacom (2024–2025): Built Spring Boot + Kafka reactive microservices with exactly-once semantics on AWS, delivering 30% lower latency and 20% higher throughput.'),
-            React.createElement('li', null, 'ESB Integration (2022–2024): Designed secure, resilient API Gateway patterns with Feign, JWT, rate limiting, circuit breaker, and reactive messaging for high-concurrency traffic.'),
-            React.createElement('li', null, 'BDTVV / CCV / BDCO2 (2019–2022): Modernized legacy services, improved telemetry throughput, and reduced reporting turnaround through pipeline and architecture upgrades.')
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'C Datacom (2024–2025)'),
+            React.createElement('p', null, 'Built Spring Boot + Kafka reactive microservices with exactly-once semantics on AWS, delivering 30% lower latency and 20% higher throughput.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'ESB Integration (2022–2024)'),
+            React.createElement('p', null, 'Designed secure, resilient API Gateway patterns with Feign, JWT, rate limiting, circuit breaker, and reactive messaging for high-concurrency traffic.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'BDTVV / CCV / BDCO2 (2019–2022)'),
+            React.createElement('p', null, 'Modernized legacy services, improved telemetry throughput, and reduced reporting turnaround through pipeline and architecture upgrades.')
           )
         )
       ),
@@ -134,7 +141,15 @@ function App() {
             ' ',
             React.createElement('button', { type: 'button', className: 'copy-btn', 'data-copy': 'kumaranandpiyush5@gmail.com' }, 'Copy')
           ),
-          React.createElement('p', null, 'Phone: +91-8210508660')
+          React.createElement('p', null, 'Phone: +91-8210508660'),
+          React.createElement('p', null,
+            'GitHub: ',
+            React.createElement('a', { href: 'https://github.com/piyushanand226/piyushanand226.github.io', target: '_blank', rel: 'noopener noreferrer' }, 'github.com/piyushanand226/piyushanand226.github.io')
+          ),
+          React.createElement('p', null,
+            'LinkedIn: ',
+            React.createElement('a', { href: 'https://www.linkedin.com/in/piyush-kumar-anand-096959355/', target: '_blank', rel: 'noopener noreferrer' }, 'linkedin.com/feed')
+          )
         )
       )
     )
