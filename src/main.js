@@ -59,8 +59,9 @@ function App() {
       React.createElement('section', { id: 'about' },
         React.createElement('div', { className: 'container' },
           React.createElement('h2', null, 'About'),
-          React.createElement('p', null, 'Senior Software Engineer with 5.6+ years of experience building and scaling cloud-native microservices across telecom, automotive, and compliance domains.'),
-          React.createElement('p', null, 'Delivered measurable outcomes including 30% latency reduction, 20% throughput increase, and 40% faster deployments using Spring Boot, WebFlux, Kafka, Kubernetes, and AWS.')
+          React.createElement('p', null, 'Senior Software Engineer with 5.6+ years of experience designing and scaling cloud-native systems across telecom, automotive, and compliance domains.'),
+          React.createElement('p', null, 'I specialize in Java/Spring ecosystems, reactive microservices, API Gateway patterns, and event-driven architecture with Kafka and RabbitMQ.'),
+          React.createElement('p', null, 'Delivered measurable outcomes including 30% latency reduction, 20% throughput increase, and 40% faster deployments through production-grade engineering and CI/CD automation.')
         )
       ),
       React.createElement('section', { id: 'experience' },
@@ -95,16 +96,31 @@ function App() {
       React.createElement('section', { id: 'skills' },
         React.createElement('div', { className: 'container' },
           React.createElement('h2', null, 'Skills'),
-          React.createElement('p', null, 'Java, JavaScript (ES6+), SQL, Spring Boot, Spring WebFlux, Reactor, RxJava, Kafka, RabbitMQ, AWS, Docker, Kubernetes, Jenkins, MySQL, Oracle, DB2, Redis.')
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Backend'),
+            React.createElement('p', null, 'Java, Spring Boot, Spring MVC, Spring WebFlux, Hibernate, REST APIs, Feign Client, JWT, Redis, SQL.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Frontend'),
+            React.createElement('p', null, 'JavaScript (ES6+), React, Angular, HTML5, CSS3.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'DevOps & Cloud'),
+            React.createElement('p', null, 'AWS (EKS, EC2, Lambda), Docker, Kubernetes, Jenkins, Git, CI/CD pipelines, observability and deployment automation.')
+          ),
+          React.createElement('div', { className: 'experience-item' },
+            React.createElement('h3', null, 'Miscellaneous'),
+            React.createElement('p', null, 'Kafka, RabbitMQ, Project Reactor, RxJava, Camunda, Vault, ELK Stack, Agile/Scrum, mentoring and system design (HLD/LLD).')
+          )
         )
       ),
       React.createElement('section', { id: 'projects' },
         React.createElement('div', { className: 'container' },
           React.createElement('h2', null, 'Projects'),
           React.createElement('ul', null,
-            React.createElement('li', null, 'C Datacom: Built Spring Boot + Kafka reactive microservices with exactly-once semantics and delivered 30% latency reduction.'),
-            React.createElement('li', null, 'ESB Integration: Designed resilient API Gateway patterns with Feign, JWT, rate limiting, and reactive messaging.'),
-            React.createElement('li', null, 'BDTVV / CCV / BDCO2: Modernized legacy services, improved telemetry throughput, and accelerated reporting pipelines.')
+            React.createElement('li', null, 'C Datacom (2024–2025): Built Spring Boot + Kafka reactive microservices with exactly-once semantics on AWS, delivering 30% lower latency and 20% higher throughput.'),
+            React.createElement('li', null, 'ESB Integration (2022–2024): Designed secure, resilient API Gateway patterns with Feign, JWT, rate limiting, circuit breaker, and reactive messaging for high-concurrency traffic.'),
+            React.createElement('li', null, 'BDTVV / CCV / BDCO2 (2019–2022): Modernized legacy services, improved telemetry throughput, and reduced reporting turnaround through pipeline and architecture upgrades.')
           )
         )
       ),
