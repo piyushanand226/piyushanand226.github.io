@@ -19,22 +19,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Detect build mode
+        id: detect
+        run: |
+          if [ -f package.json ] && [ -f package-lock.json ]; then
+            echo "is_node=true" >> "$GITHUB_OUTPUT"
+            echo "artifact_path=./dist" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_node=false" >> "$GITHUB_OUTPUT"
+            echo "artifact_path=./" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Setup Node.js
+        if: steps.detect.outputs.is_node == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install dependencies
+        if: steps.detect.outputs.is_node == 'true'
         run: npm ci
 
       - name: Build React app
+        if: steps.detect.outputs.is_node == 'true'
         run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ${{ steps.detect.outputs.artifact_path }}
 
       - name: Deploy to GitHub Pages
         id: deployment
