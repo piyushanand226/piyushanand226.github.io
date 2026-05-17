@@ -36,36 +36,11 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ]
 
-const highlights = [
-  { label: 'Experience', value: '7+ Years', text: 'Building enterprise-grade distributed systems.' },
-  { label: 'Core Stack', value: 'Java + Spring', text: 'Reactive microservices, APIs, and event-driven architecture.' },
-  { label: 'Cloud', value: 'AWS & K8s', text: 'Containerized delivery with observability and scalability.' },
-]
-
-const skills = ['Java', 'Spring Boot', 'Kafka', 'Microservices', 'Kubernetes', 'AWS', 'PostgreSQL', 'Redis']
-
-const projects = [
-  {
-    title: 'Realtime Payments Platform',
-    desc: 'Built resilient payment workflows with idempotent processing and event streaming to improve reliability and throughput.',
-    tag: 'Backend',
-  },
-  {
-    title: 'Cloud Cost Insights',
-    desc: 'Created usage analytics dashboards and optimization workflows to reduce infrastructure spend while maintaining SLA targets.',
-    tag: 'Cloud',
-  },
-  {
-    title: 'Developer Enablement Toolkit',
-    desc: 'Standardized service templates, CI/CD checks, and observability defaults to speed up team delivery.',
-    tag: 'Platform',
-  },
-]
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
   const isMobile = window.matchMedia('(max-width: 768px)').matches
 
@@ -87,6 +62,7 @@ function App() {
         }
       }
       setActiveSection(current)
+      setShowBackToTop(window.scrollY > 420)
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -104,14 +80,24 @@ function App() {
     document.body.classList.toggle('menu-open', menuOpen && isMobile)
   }, [menuOpen, isMobile])
 
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
+  const scrollToSection = (id) => {
+    const target = document.getElementById(id)
+    scrollToSection(id)
+  }
+
   const onNavigate = (event, id) => {
     event.preventDefault()
-    const target = document.getElementById(id)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setActiveSection(id)
-      setMenuOpen(false)
-    }
+    scrollToSection(id)
   }
 
   return (
@@ -135,6 +121,7 @@ function App() {
         </nav>
       </header>
       <button type="button" className={`nav-backdrop ${menuOpen && isMobile ? 'is-visible' : ''}`} aria-hidden={menuOpen && isMobile ? 'false' : 'true'} aria-label="Close navigation menu" onClick={() => setMenuOpen(false)}></button>
+      <button type="button" className={`back-to-top ${showBackToTop ? 'is-visible' : ''}`} onClick={() => scrollToSection('home')} aria-label="Back to top" hidden={!showBackToTop}>↑</button>
       <main id="main-content" tabIndex="-1">
         <section id="home" className="hero">
           <div className="hero-grid">

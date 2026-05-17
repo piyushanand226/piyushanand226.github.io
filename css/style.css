@@ -1533,25 +1533,25 @@ footer p {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: white;
+    background: #fff;
     position: absolute;
-    top: 100%;
-    left: -100%;
-    transition: left 0.3s ease-in-out;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 1200;
     box-shadow: var(--shadow-lg);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 14px;
+    padding: 10px 0;
   }
 
   #nav-links li {
-    margin: 16px 0;
+    margin: 0;
     text-align: center;
-    padding: 12px 24px;
+    padding: 8px 18px;
   }
 
   #nav-links.show {
     display: flex;
-    left: 0;
-    z-index: 20;
   }
 
   .hero {
