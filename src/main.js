@@ -119,16 +119,17 @@ function App() {
           React.createElement('h2', null, 'Projects'),
           React.createElement('div', { className: 'contact-cards' },
             React.createElement('article', { className: 'contact-card' },
-            React.createElement('h4', null, 'C Datacom (2024–2025)'),
-            React.createElement('p', null, 'Built Spring Boot + Kafka reactive microservices with exactly-once semantics on AWS, delivering 30% lower latency and 20% higher throughput.')
-          ),
-          React.createElement('article', { className: 'contact-card' },
-            React.createElement('h4', null, 'ESB Integration (2022–2024)'),
-            React.createElement('p', null, 'Designed secure, resilient API Gateway patterns with Feign, JWT, rate limiting, circuit breaker, and reactive messaging for high-concurrency traffic.')
-          ),
-          React.createElement('article', { className: 'contact-card' },
-            React.createElement('h4', null, 'BDTVV / CCV / BDCO2 (2019–2022)'),
-            React.createElement('p', null, 'Modernized legacy services, improved telemetry throughput, and reduced reporting turnaround through pipeline and architecture upgrades.')
+              React.createElement('h4', null, 'C Datacom (2024–2025)'),
+              React.createElement('p', null, 'Built Spring Boot + Kafka reactive microservices with exactly-once semantics on AWS, delivering 30% lower latency and 20% higher throughput.')
+            ),
+            React.createElement('article', { className: 'contact-card' },
+              React.createElement('h4', null, 'ESB Integration (2022–2024)'),
+              React.createElement('p', null, 'Designed secure, resilient API Gateway patterns with Feign, JWT, rate limiting, circuit breaker, and reactive messaging for high-concurrency traffic.')
+            ),
+            React.createElement('article', { className: 'contact-card' },
+              React.createElement('h4', null, 'BDTVV / CCV / BDCO2 (2019–2022)'),
+              React.createElement('p', null, 'Modernized legacy services, improved telemetry throughput, and reduced reporting turnaround through pipeline and architecture upgrades.')
+            )
           )
         )
       ),
