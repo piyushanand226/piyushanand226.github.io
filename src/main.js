@@ -144,11 +144,11 @@ function App() {
           React.createElement('p', null, 'Phone: +91-8210508660'),
           React.createElement('p', null,
             'GitHub: ',
-            React.createElement('a', { href: 'https://github.com/piyushanand226/piyushanand226.github.io', target: '_blank', rel: 'noopener noreferrer' }, 'github.com/piyushanand226/piyushanand226.github.io')
+            React.createElement('a', { href: 'https://github.com/piyushanand226/piyushanand226.github.io', target: '_blank', rel: 'noopener noreferrer' }, 'Github')
           ),
           React.createElement('p', null,
             'LinkedIn: ',
-            React.createElement('a', { href: 'https://www.linkedin.com/in/piyush-kumar-anand-096959355/', target: '_blank', rel: 'noopener noreferrer' }, 'linkedin.com/feed')
+            React.createElement('a', { href: 'https://www.linkedin.com/in/piyush-kumar-anand-096959355/', target: '_blank', rel: 'noopener noreferrer' }, 'LinkedIn')
           )
         )
       )
