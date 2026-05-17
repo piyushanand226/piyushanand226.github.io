@@ -134,6 +134,7 @@ function App() {
           <div className="nav-actions"><a href="asset/resume.pdf" className="nav-btn" download>Resume</a></div>
         </nav>
       </header>
+      <button type="button" className={`nav-backdrop ${menuOpen && isMobile ? 'is-visible' : ''}`} aria-hidden={menuOpen && isMobile ? 'false' : 'true'} aria-label="Close navigation menu" onClick={() => setMenuOpen(false)}></button>
       <main id="main-content" tabIndex="-1">
         <section id="home" className="hero">
           <div className="hero-grid">
