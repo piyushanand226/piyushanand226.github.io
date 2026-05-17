@@ -170,7 +170,7 @@ function App() {
               React.createElement('p', { className: 'contact-links' },
                 React.createElement('a', { href: 'https://github.com/piyushanand226/piyushanand226.github.io', target: '_blank', rel: 'noopener noreferrer' }, 'GitHub'),
                 ' · ',
-                React.createElement('a', { href: 'https://www.linkedin.com/feed/', target: '_blank', rel: 'noopener noreferrer' }, 'LinkedIn')
+                React.createElement('a', { href: 'https://www.linkedin.com/in/piyush-kumar-anand-096959355/', target: '_blank', rel: 'noopener noreferrer' }, 'LinkedIn')
               )
             )
           )
