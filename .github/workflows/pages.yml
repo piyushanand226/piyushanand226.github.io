@@ -11,21 +11,55 @@ jobs:
     environment:
       name: github-pages
     permissions:
-      contents: write   # allow pushing to gh-pages
-      pages: write      # allow publishing to Pages
-      id-token: write   # required for OIDC authentication
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4   # ✅ updated to v4
+        uses: actions/checkout@v4
 
-      # Upload artifact for Pages (latest version)
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3   # ✅ updated to v3
+      - name: Detect build mode
+        id: detect
+        run: |
+          if [ -f package.json ]; then
+            echo "is_node=true" >> "$GITHUB_OUTPUT"
+            echo "artifact_path=./dist" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_node=false" >> "$GITHUB_OUTPUT"
+            echo "artifact_path=./" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node.js
+        if: steps.detect.outputs.is_node == 'true'
+        uses: actions/setup-node@v4
         with:
-          path: ./   # Root folder containing index.html
+          node-version: 20
 
-      # Deploy to GitHub Pages (latest version)
+      - name: Install dependencies
+        if: steps.detect.outputs.is_node == 'true'
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Build React app
+        if: steps.detect.outputs.is_node == 'true'
+        run: npm run build
+
+
+      - name: Verify build output
+        if: steps.detect.outputs.is_node == 'true'
+        run: |
+          test -f dist/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.detect.outputs.artifact_path }}
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4   # ✅ updated to v4
+        uses: actions/deploy-pages@v4
