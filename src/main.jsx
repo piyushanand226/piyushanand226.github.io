@@ -95,7 +95,11 @@ function App() {
 
   const scrollToSection = (id) => {
     const target = document.getElementById(id)
-    scrollToSection(id)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      setActiveSection(id)
+      setMenuOpen(false)
+    }
   }
 
   const onNavigate = (event, id) => {
