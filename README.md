@@ -72,3 +72,6 @@ This project is licensed under the MIT License – free for lifetime use, modifi
 ✅ This README highlights your skills, repo structure, and secure deployment pipeline. It’s professional and recruiter‑ready.  
 
 👉 Would you like me to also generate a **Projects section template** so you can showcase each project with description, tech stack, and live/demo links?
+
+## ⚙️ GitHub Pages + React Deployment Note
+If this portfolio is migrated to React (for example with Vite), GitHub Actions must build the app first and deploy the compiled output folder (`dist`) instead of deploying repository root files directly.
