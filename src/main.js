@@ -59,9 +59,21 @@ function App() {
       React.createElement('section', { id: 'about' },
         React.createElement('div', { className: 'container' },
           React.createElement('h2', null, 'About'),
-          React.createElement('p', null, 'Senior Software Engineer with 5.6+ years of experience designing and scaling cloud-native systems across telecom, automotive, and compliance domains.'),
-          React.createElement('p', null, 'I specialize in Java/Spring ecosystems, reactive microservices, API Gateway patterns, and event-driven architecture with Kafka and RabbitMQ.'),
-          React.createElement('p', null, 'Delivered measurable outcomes including 30% latency reduction, 20% throughput increase, and 40% faster deployments through production-grade engineering and CI/CD automation.')
+          React.createElement('p', { className: 'section-lead' }, 'Senior Software Engineer with 5.6+ years of experience building high-scale, cloud-native platforms across telecom, automotive, and compliance domains.'),
+          React.createElement('div', { className: 'contact-cards' },
+            React.createElement('article', { className: 'contact-card' },
+              React.createElement('h4', null, 'What I Build'),
+              React.createElement('p', null, 'Reactive Java microservices, secure API Gateway integrations, and event-driven systems powered by Kafka/RabbitMQ for real-time reliability.')
+            ),
+            React.createElement('article', { className: 'contact-card' },
+              React.createElement('h4', null, 'Impact Delivered'),
+              React.createElement('p', null, 'Delivered 30% latency reduction, 20% throughput improvement, and 40% faster deployments through architecture optimization and CI/CD automation.')
+            ),
+            React.createElement('article', { className: 'contact-card' },
+              React.createElement('h4', null, 'Core Strengths'),
+              React.createElement('p', null, 'Spring Boot/WebFlux, Kubernetes on AWS, resilient distributed design, and mentoring engineering teams on reactive programming practices.')
+            )
+          )
         )
       ),
       React.createElement('section', { id: 'experience' },
