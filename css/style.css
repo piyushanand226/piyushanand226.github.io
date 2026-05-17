@@ -1953,3 +1953,38 @@ header nav ul li a:focus-visible,
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+:root[data-theme='dark'] {
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #94a3b8;
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-surface: #111827;
+}
+
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(ellipse 900px 520px at 12% -8%, rgba(99, 102, 241, 0.25), transparent 55%),
+    radial-gradient(ellipse 800px 480px at 92% 8%, rgba(34, 211, 238, 0.14), transparent 50%),
+    linear-gradient(180deg, #020617 0%, #0b1120 45%, #111827 100%);
+}
+
+.theme-toggle {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--text-primary);
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+:root[data-theme='dark'] .theme-toggle,
+:root[data-theme='dark'] .highlight-card,
+:root[data-theme='dark'] .project-mini-card,
+:root[data-theme='dark'] .chip {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: var(--text-primary);
+}

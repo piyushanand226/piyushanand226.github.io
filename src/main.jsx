@@ -42,6 +42,7 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 768px)').matches)
+  const [theme, setTheme] = useState(() => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
 
   useEffect(() => {
     const onScroll = () => {
@@ -84,6 +85,10 @@ function App() {
   }, [menuOpen, isMobile])
 
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
+  useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === 'Escape') {
         setMenuOpen(false)
@@ -124,7 +129,7 @@ function App() {
               </li>
             ))}
           </ul>
-          <div className="nav-actions"><a href="asset/resume.pdf" className="nav-btn" download>Resume</a></div>
+          <div className="nav-actions"><button type="button" className="theme-toggle" aria-label="Toggle color theme" onClick={() => setTheme((v) => (v === 'dark' ? 'light' : 'dark'))}>{theme === 'dark' ? '☀️ Light' : '🌙 Dark'}</button><a href="asset/resume.pdf" className="nav-btn" download>Resume</a></div>
         </nav>
       </header>
       <button type="button" className={`nav-backdrop ${menuOpen && isMobile ? 'is-visible' : ''}`} aria-hidden={menuOpen && isMobile ? 'false' : 'true'} aria-label="Close navigation menu" onClick={() => setMenuOpen(false)}></button>
