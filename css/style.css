@@ -1123,10 +1123,15 @@ section h2::after {
 
 /* Contact section */
 .section-alt {
-  background: rgba(255, 255, 255, 0.92);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.9)),
+    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.12), transparent 35%),
+    radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.12), transparent 32%);
   border-radius: 32px;
-  border: 1px solid rgba(99, 102, 241, 0.12);
-  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  box-shadow: 0 28px 65px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 64px 24px;
 }
 
@@ -1140,12 +1145,13 @@ section h2::after {
 
 .capability-card,
 .contact-card {
-  background: white;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
   padding: 28px;
   border-radius: 24px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .contact-card {
@@ -1157,8 +1163,9 @@ section h2::after {
 
 .capability-card:hover,
 .contact-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(15, 23, 42, 0.13);
+  border-color: rgba(99, 102, 241, 0.35);
 }
 
 .capability-card h3,
@@ -1808,4 +1815,53 @@ header nav ul li a:focus-visible,
 
 .experience-details li:last-child {
   margin-bottom: 0;
+}
+
+
+/* Modern polish for resume sections */
+#about .contact-card h4,
+#projects .contact-card h4,
+#contact .contact-card h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#about .contact-cards,
+#projects .contact-cards,
+#contact .contact-cards {
+  align-items: stretch;
+}
+
+#about .contact-card p,
+#projects .contact-card p,
+#contact .contact-card p {
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+#projects .contact-card {
+  position: relative;
+  overflow: hidden;
+}
+
+#projects .contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+#contact .contact-links a {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  #about .contact-cards,
+  #projects .contact-cards,
+  #contact .contact-cards {
+    grid-template-columns: 1fr;
+  }
 }
