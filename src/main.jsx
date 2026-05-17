@@ -41,8 +41,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [scrollProgress, setScrollProgress] = useState(0)
   const [showBackToTop, setShowBackToTop] = useState(false)
-
-  const isMobile = window.matchMedia('(max-width: 768px)').matches
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 768px)').matches)
 
   useEffect(() => {
     const onScroll = () => {
@@ -66,7 +65,11 @@ function App() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
-    const onResize = () => setMenuOpen(false)
+    const onResize = () => {
+      const mobile = window.matchMedia('(max-width: 768px)').matches
+      setIsMobile(mobile)
+      if (!mobile) setMenuOpen(false)
+    }
     window.addEventListener('resize', onResize)
     onScroll()
 
@@ -107,7 +110,7 @@ function App() {
         <div className="scroll-progress" aria-hidden="true"><div className="scroll-progress-bar" style={{ transform: `scaleX(${scrollProgress})` }}></div></div>
         <nav aria-label="Primary">
           <a href="#home" className="logo" aria-label="Piyush Kumar Anand — home" onClick={(e) => onNavigate(e, 'home')}>PKA</a>
-          <button type="button" className={`hamburger ${menuOpen ? 'is-open' : ''}`} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen ? 'true' : 'false'} aria-controls="nav-links" onClick={() => setMenuOpen((open) => !open)}>
+          <button type="button" className={`hamburger ${menuOpen ? 'is-open' : ''}`} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen ? 'true' : 'false'} aria-controls="nav-links" onClick={() => setMenuOpen((open) => (isMobile ? !open : false))}>
             <span className="hamburger-box" aria-hidden="true"><span className="hamburger-bar"></span><span className="hamburger-bar"></span><span className="hamburger-bar"></span></span>
           </button>
           <ul id="nav-links" className={menuOpen ? 'show' : ''}>
